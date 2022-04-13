@@ -44,9 +44,9 @@ def predict():
 
         print(op1)
         if output == 1:
-            return render_template('index.html', prediction_text="The Person does not have a Heart Disease")
+            return render_template('index.html', prediction_text="Result :  The Person does not have a Heart Disease")
         else:
-            return render_template('index.html', prediction_text="The Person has Heart Disease ")
+            return render_template('index.html', prediction_text="Result :  The Person has Heart Disease ")
 
     else:
         return render_template('index.html')
