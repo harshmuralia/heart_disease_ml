@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div
+      style="
+        text-align: center;
+        background-color: rgb(232, 172, 108);
+        margin: auto;
+        width: 60%;
+        border: 5px solid #0091ff;
+        padding: 10px;
+      "
+    >
+      <h2>Heart Test Details</h2>
+      <h3>Please enter details:</h3>
+      <br />
+      <div><h3>{{ prediction_text }}</h3></div>
+      <form
+        style="text-align: center"
+        action="{{ url_for('predict')}}"
+        method="post"
+      >
+        <br />
+        <div class="col-md-4 col-sm-4">
+          <label for="fname">Age:</label>
+          <input required="required" name="age" type="text" />
+        </div>
+        <br /><br />
+        <div class="col-md-4 col-sm-4">
+          <label for="lname">Sex:</label>
+          <select required="required" id="lname" name="sex">
+            <option disabled selected hidden>Sex</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="fname">Chest Pain Type :</label>
+          <select required="required" id="fname" name="chest_pain">
+            <option disabled selected hidden>Value</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="lname">Resting Blood Pressure:</label>
+          <input
+            type="text"
+            required="required"
+            id="lname"
+            name="blood_press"
+          />
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="fname">Serum Cholestoral in mg/dl:</label>
+          <input type="text" required="required" id="fname" name="serum_chol" />
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="lname">Fasting Blood Sugar > 120 mg/dl:</label>
+          <select id="lname" required="required" name="blood_sugar">
+            <option disabled selected hidden>High/Low</option>
+            <option value="1">High</option>
+            <option value="0">Low</option>
+          </select>
+        </div>
+        <br />
+        <br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="fname">Resting Electrocardiographic Results:</label>
+          <select required="required" name="electrocard" type="text">
+            <option disabled selected hidden>value</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="lname">Maximum Heart Rate Achieved:</label>
+          <input
+            required="required"
+            type="text"
+            id="lname"
+            name="max_heart_rate"
+          />
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="fname">Exercise Induced Angina :</label>
+          <select required="required" id="fname" name="induced_ang">
+            <option disabled selected hidden>0/1</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="lname">Oldpeak:</label>
+          <input required="required" type="text" id="lname" name="oldpeak" />
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="fname">The Slope of the Peak Exercise ST segment:</label>
+          <select required="required" required id="fname" name="peak_st_seg">
+            <option disabled selected hidden>Value</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="lname">Number of Major Vessels:</label>
+          <select required="required" id="lname" name="major_ves">
+            <option disabled selected hidden>Number of Major Vessels</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <br /><br />
+
+        <div class="col-md-4 col-sm-4">
+          <label for="lname">Thal:</label>
+          <select required="required" id="lname" name="thal">
+            <option disabled selected hidden>Thal</option>
+            <option value="3">3 (normal)</option>
+            <option value="6">6 (fixed defect)</option>
+            <option value="7">7 (reversable defect)</option>
+          </select>
+        </div>
+        <br /><br />
+        <br /><br />
+
+        <div>
+          <button id="sub" type="submit">Predict</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
